@@ -5,7 +5,9 @@ pipeline {
         stage('Start Minikube Cluster') {
             steps {
                 // Start a 3-node Minikube cluster with the 'none' driver
-                sh 'minikube start --nodes=3 --driver=none'
+                sh 'minikube config set memory 768'
+                sh 'minikube config set disk-size 5000'
+                sh 'minikube start --nodes=3'
             }
         }
 
